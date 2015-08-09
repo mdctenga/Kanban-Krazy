@@ -8,19 +8,34 @@
 
 <template name="layout">
   <h1>Hello!!!!1</h1>
+  <div class="nav">
+    {{> loginButtons}}
+  </div>
   <div class="container">
     {{> yield}}
   </div>
 </template>
 
 <template name="main">
-  asld;kfj
+  <h1>This is main</h1>
 </template>
 
 <template name="dashboard">
   This is dashboard!!!!3
 </template>
 
-<template name="login">
-  This is login!!!!4
+<template name="addUserForm">
+  {{#if currentUser}}
+    <form>
+      <input type="text" name="user">
+      <input type="submit" value="addUser">
+    </form>
+  {{/if}}
 </template>
+
+<!-- <template name="login">
+  <h1>Login Page</h1>
+  <div id="login">
+    {{> loginButtons}}
+  </div>
+</template> -->
