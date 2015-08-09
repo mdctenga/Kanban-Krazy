@@ -15,6 +15,7 @@ Router.onBeforeAction(function () {
         Router.go('/');
       }
     }
+    this.next();
   });
 
 Router.route('/dashboard', function () {
