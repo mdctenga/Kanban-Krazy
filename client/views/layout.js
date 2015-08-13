@@ -37,7 +37,7 @@ Template.todo.destroyed = function(){
 
 Template.todo.helpers({
   'todo': function () {
-    return ToDoCollection.find({userId: Meteor.userId()}).fetch();
+    return KanbanCollection.find({userId: Meteor.userId()}).fetch();
   }
 });
 
