@@ -22,15 +22,44 @@
 
 <template name="dashboard">
   This is dashboard!!!!3
-  {{> todo }}
+  <div class="input">
+    <span>
+      <input type="text" id="message" maxlength="25">
+    </span>
+    <span>
+      <a href="#" id="submit">Submit</a>
+    </span>
+  </div>
+  <div class="clear"></div>
+  <div class="wrapper">
+    <div class="todo">
+      {{> todo }}
+    </div>
+    <div class="progress">
+      {{> progress }}
+    </div>
+    <div class="done">
+      {{> done }}
+    </div>
+  </div>
 </template>
 
 <template name="todo">
-  <div class="container">
-    {{#each todo}}
-      {{> card }}
-    {{/each}}
-  </div>
+  {{#each todo}}
+    {{> card }}
+  {{/each}}
+</template>
+
+<template name="progress">
+  {{#each progress}}
+    {{> card }}
+  {{/each}}
+</template>
+
+<template name="done">
+  {{#each done}}
+    {{> card }}
+  {{/each}}
 </template>
 
 <template name="card">
