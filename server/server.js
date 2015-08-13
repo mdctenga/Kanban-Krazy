@@ -10,7 +10,7 @@ Meteor.startup(function(){
     var array = [{user: matt, message: 'hell0'},
                  {user: sean, message: 'butter mochi'},
                  {user: matt, message: 'konichiwa'},
-                 {user: sean, msessage: 'peanut buttah choco bits'}
+                 {user: sean, message: 'peanut buttah choco bits'}
                 ];
       array.forEach(function (element, index) {
         ToDoCollection.insert({
