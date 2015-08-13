@@ -17,8 +17,33 @@ Template.dashboard.helpers({
 });
 
 Template.dashboard.events({
-
+  'keypress #message': function(evt, tmpl){
+    if(evt.keyCode === 13){
+      addMessage(evt, tmpl);
+    }
+  },
+  'click #submit': function(evt, tmpl){
+    addMessage(evt, tmpl);
+  }
 });
+
+function addMessage(evt, tmpl){
+  var message = tmpl.find('#message').value;
+  if (message === '') {
+    return;
+  }
+  KanbanCollection.insert({
+    userId: Meteor.userId(),
+    message: message,
+    todo: true,
+    progress: false,
+    done: false,
+    show: true,
+    added: Date.now()
+  });
+  tmpl.find('#message').value = "";
+  tmpl.find('#message').focus();
+}
 
 
 // Todo Template
