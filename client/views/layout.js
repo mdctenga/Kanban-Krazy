@@ -12,7 +12,6 @@ Template.todo.destroyed = function(){
 
 Template.todo.helpers({
   'todo': function () {
-    var currentUser = Meteor.userId();
-    return ToDoCollection.find({userId: currentUser}).fetch();
+    return ToDoCollection.find({userId: Meteor.userId()}).fetch();
   }
 });

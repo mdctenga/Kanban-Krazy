@@ -6,7 +6,10 @@ Meteor.startup(function(){
 
   // ToDoCollection.drop();
 
-  if (ToDoCollection.find().fetch().length === 0) {
+
+
+  if (ToDoCollection.find().fetch().length > 0) {
+    ToDoCollection.remove({});
     var array = [{user: matt, message: 'hell0'},
                  {user: sean, message: 'butter mochi'},
                  {user: matt, message: 'konichiwa'},
