@@ -29,15 +29,13 @@ Template.dashboard.events({
 
 function addMessage(evt, tmpl){
   var message = tmpl.find('#message').value;
-  if (message === '') {
+  if (trim(message) === '') {
     return;
   }
   KanbanCollection.insert({
     userId: Meteor.userId(),
     message: message,
-    todo: true,
-    progress: false,
-    done: false,
+    status: "todo",
     show: true,
     added: Date.now()
   });
@@ -62,11 +60,68 @@ Template.todo.destroyed = function(){
 
 Template.todo.helpers({
   'todo': function () {
-    return KanbanCollection.find({userId: Meteor.userId()}).fetch();
+    return KanbanCollection.find({userId: Meteor.userId(), status: "todo"}).fetch();
   }
 });
 
 Template.todo.events({
+  'click .card': function(evt, tmpl){
+    KanbanCollection.update(
+      {_id: this._id},
+      {$set: {
+        status: "progress"
+      }}
+    );
+  }
+});
+
+// Progress Template
+
+Template.progress.created = function(){
+  console.log("created");
+};
+Template.progress.rendered = function(){
+  console.log("rendered");
+};
+
+Template.progress.destroyed = function(){
+  console.log("destroyed");
+};
+
+
+Template.progress.helpers({
+  'progress': function () {
+    return KanbanCollection.find({userId: Meteor.userId(), status: "progress"}).fetch();
+  }
+});
+
+Template.progress.events({
+  'click .card': function(evt, tmpl){
+    console.log(this);
+  }
+});
+
+// Done Template
+
+Template.done.created = function(){
+  console.log("created");
+};
+Template.done.rendered = function(){
+  console.log("rendered");
+};
+
+Template.done.destroyed = function(){
+  console.log("destroyed");
+};
+
+
+Template.done.helpers({
+  'done': function () {
+    return KanbanCollection.find({userId: Meteor.userId(), status: "done"}).fetch();
+  }
+});
+
+Template.done.events({
   'click .card': function(evt, tmpl){
     console.log(this);
   }

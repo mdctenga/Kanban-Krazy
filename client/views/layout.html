@@ -1,5 +1,6 @@
 <head>
   <title>Kanban-Krazy</title>
+  <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 
 <body>
@@ -32,34 +33,40 @@
   </div>
   <div class="clear"></div>
   <div class="wrapper">
-    <div class="todo">
+    <div class="column todo">
       {{> todo }}
     </div>
-    <div class="progress">
+    <div class="column progress">
       {{> progress }}
     </div>
-    <div class="done">
+    <div class="column done">
       {{> done }}
     </div>
   </div>
 </template>
 
 <template name="todo">
-  {{#each todo}}
-    {{> card }}
-  {{/each}}
+  <div class="todo">
+    {{#each todo}}
+      {{> card }}
+    {{/each}}
+  </div>
 </template>
 
 <template name="progress">
-  {{#each progress}}
-    {{> card }}
-  {{/each}}
+  <div class="progress">
+    {{#each progress}}
+      {{> card }}
+    {{/each}}
+  </div>
 </template>
 
 <template name="done">
-  {{#each done}}
-    {{> card }}
-  {{/each}}
+  <div class="done">
+    {{#each done}}
+      {{> card }}
+    {{/each}}
+  </div>
 </template>
 
 <template name="card">

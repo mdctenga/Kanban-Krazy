@@ -1,0 +1,29 @@
+.clear {
+  clear: both;
+}
+
+.column {
+  height: 100px;
+  width: 300px;
+  float: left;
+}
+
+.todo {
+  background-color: purple;
+}
+
+.progress {
+  background-color: orange;
+}
+
+.done {
+  background-color: teal;
+}
+
+.card {
+  width: 90%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: green;
+  border: 1px solid black;
+}
