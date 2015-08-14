@@ -67,6 +67,8 @@ Template.todo.helpers({
 });
 
 Template.todo.events({
-
+  'click .card': function(evt, tmpl){
+    console.log(this);
+  }
 });
 
