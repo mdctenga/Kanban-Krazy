@@ -1,12 +1,42 @@
+h1 {
+  background-color: gray;
+}
+
+.nav {
+  background-color: yellow;
+}
+
+.container {
+  background-color: lime;
+}
+
+.input {
+  background-color: brown;
+}
+
 .clear {
   clear: both;
+  background-color: pink;
+}
+
+.wrapper {
+  margin: 0 auto;
+  width: 1000px;
+  background-color: black;
 }
 
 .column {
   height: 100px;
-  width: 300px;
+  width: 20em;
   float: left;
+  background-color: blue;
+  margin-right: 5px;
 }
+
+/*.todo, .progress, .done {
+  width: 100%;
+  height: 100%;
+}*/
 
 .todo {
   background-color: purple;
@@ -26,4 +56,11 @@
   text-align: center;
   background-color: green;
   border: 1px solid black;
+}
+
+.message {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+  background-color: gold;
 }
