@@ -1,3 +1,5 @@
+var current;
+
 // Dashboard Template
 
 Template.dashboard.created = function(){
@@ -28,19 +30,23 @@ Template.dashboard.events({
 });
 
 function addMessage(evt, tmpl){
+  var title = tmpl.find('#title').value;
   var message = tmpl.find('#message').value;
-  if (trim(message) === '') {
+  if (message.trim() && title.trim() === '') {
     return;
   }
   KanbanCollection.insert({
     userId: Meteor.userId(),
+    title: title,
     message: message,
     status: "todo",
     show: true,
     added: Date.now()
   });
+  tmpl.find('#title').value ="";
+  tmpl.find('#title').focus();
+
   tmpl.find('#message').value = "";
-  tmpl.find('#message').focus();
 }
 
 
@@ -65,11 +71,11 @@ Template.todo.helpers({
 });
 
 Template.todo.events({
-  'click .card': function(evt, tmpl){
+  'drop .column': function(evt, tmpl){
     KanbanCollection.update(
-      {_id: this._id},
+      {_id: current._id},
       {$set: {
-        status: "progress"
+        status: "todo"
       }}
     );
   }
@@ -96,8 +102,13 @@ Template.progress.helpers({
 });
 
 Template.progress.events({
-  'click .card': function(evt, tmpl){
-    console.log(this);
+  'drop .column': function(evt, tmpl){
+    KanbanCollection.update(
+      {_id: current._id},
+      {$set: {
+        status: "progress"
+      }}
+    );
   }
 });
 
@@ -122,8 +133,39 @@ Template.done.helpers({
 });
 
 Template.done.events({
-  'click .card': function(evt, tmpl){
-    console.log(this);
+  'drop .column': function(evt, tmpl){
+    KanbanCollection.update(
+      {_id: current._id},
+      {$set: {
+        status: "done"
+      }}
+    );
   }
 });
 
+Template.card.events({
+  'click .delete': function(evt, tmpl){
+    KanbanCollection.remove(
+      {_id: this._id}
+    );
+  },
+  'blur .title': function(evt, tmpl){
+    KanbanCollection.update(
+      {_id: this._id},
+      {$set: {
+        title: evt.target.innerText
+      }}
+    );
+  },
+  'blur .message': function(evt, tmpl){
+    KanbanCollection.update(
+      {_id: this._id},
+      {$set: {
+        message: evt.target.innerText
+      }}
+    );
+  },
+  'drag .card': function (evt, tmpl){
+    current = this;
+  }
+});

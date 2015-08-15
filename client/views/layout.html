@@ -8,11 +8,11 @@
 </body>
 
 <template name="layout">
-  <h1>Hello!!!!1</h1>
   <div class="nav">
     {{> loginButtons}}
   </div>
   <div class="container">
+    <h1>Kanban Board!</h1>
     {{> yield}}
   </div>
 </template>
@@ -25,28 +25,26 @@
   This is dashboard!!!!3
   <div class="input">
     <span>
-      <input type="text" id="message" maxlength="25">
+      <input type="text" id="title" maxlength="20" placeholder="Title">
+    </span>
+    <span>
+      <input type="text" id="message" maxlength="25" placeholder="Message">
     </span>
     <span>
       <a href="#" id="submit">Submit</a>
     </span>
   </div>
-  <div class="clear"></div>
+  <!-- <div class="clear"></div> -->
   <div class="wrapper">
-    <div class="column todo">
-      {{> todo }}
-    </div>
-    <div class="column progress">
-      {{> progress }}
-    </div>
-    <div class="column done">
-      {{> done }}
-    </div>
+    {{> todo}}
+    {{> progress}}
+    {{> done}}
+    <div class="clear"></div>
   </div>
 </template>
 
 <template name="todo">
-  <div class="todo">
+  <div class="column todo" ondragover="event.preventDefault()">
     {{#each todo}}
       {{> card }}
     {{/each}}
@@ -54,7 +52,7 @@
 </template>
 
 <template name="progress">
-  <div class="progress">
+  <div class="column progress" ondragover="event.preventDefault()">
     {{#each progress}}
       {{> card }}
     {{/each}}
@@ -62,7 +60,7 @@
 </template>
 
 <template name="done">
-  <div class="done">
+  <div class="column done" ondragover="event.preventDefault()">
     {{#each done}}
       {{> card }}
     {{/each}}
@@ -70,10 +68,15 @@
 </template>
 
 <template name="card">
-  <div class="card">
-    <div class="message">
-      {{message}}
-    </div>
+  <div class="card" draggable="true">
+    <p class="title" ondblclick="this.contentEditable=true" onblur="this.contentEditable=false" contenteditable= "false">
+     {{title}}
+    </p>
+
+    <p class="message" ondblclick="this.contentEditable=true" onblur="this.contentEditable=false" contenteditable= "false">
+     {{message}}
+    </p>
+    <div class="delete">x</div>
   </div>
 </template>
 
