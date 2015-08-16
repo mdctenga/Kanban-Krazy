@@ -1,17 +1,34 @@
-h1 {
-  background-color: gray;
-}
-
-.nav {
-  background-color: yellow;
+body {
+  font-family: helvetica;
 }
 
 .container {
-  background-color: lime;
+  background-color: #21A581;
+  height: 100%;
+  width: 100%;
+  position: fixed;
 }
 
+.nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.boardTitle {
+  width: 50%;
+  margin: 0px auto;
+  text-align: center;
+  clear: left;
+  margin-bottom: 1em;
+  font-size: 3em;
+}
+
+
 .input {
-  background-color: brown;
+  text-align: center;
+  margin: 0 auto;
+  width: 27%;
 }
 
 .clear {
@@ -22,45 +39,62 @@ h1 {
 .wrapper {
   margin: 0 auto;
   width: 1000px;
-  background-color: black;
+  display: flex;
 }
 
 .column {
-  height: 100px;
+  height: 36em;
   width: 20em;
   float: left;
-  background-color: blue;
-  margin-right: 5px;
+  background-color: #62d5b4;
+  margin: auto;
 }
 
-/*.todo, .progress, .done {
-  width: 100%;
-  height: 100%;
-}*/
+.columnTitle {
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 15px 0px 15px 0px;
+  font-weight: heavy;
+}
 
 .todo {
-  background-color: purple;
+
 }
 
 .progress {
-  background-color: orange;
+
 }
 
 .done {
-  background-color: teal;
+
 }
 
 .card {
-  width: 90%;
+  width: 85%;
   margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 5px;
   text-align: center;
-  background-color: green;
+  background-color: #6B9BD5;
   border: 1px solid black;
+  position: relative;
+}
+
+.delete {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  cursor: pointer;
+}
+
+.Title {
+  background-color: violet;
 }
 
 .message {
   width: 90%;
   margin: auto;
   text-align: center;
-  background-color: gold;
+  background-color: #FA9AAD;
 }

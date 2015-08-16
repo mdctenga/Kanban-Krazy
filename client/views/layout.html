@@ -1,5 +1,6 @@
 <head>
   <title>Kanban-Krazy</title>
+  <link rel="stylesheet" type="text/css" href="../css/reset.css">
   <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 
@@ -8,11 +9,12 @@
 </body>
 
 <template name="layout">
-  <div class="nav">
-    {{> loginButtons}}
-  </div>
   <div class="container">
-    <h1>Kanban Board!</h1>
+    <div class="boardTitle">Kanban Board!</div>
+    <div class="nav">
+      {{> loginButtons}}
+    </div>
+    <div class="clear"></div>
     {{> yield}}
   </div>
 </template>
@@ -22,20 +24,15 @@
 </template>
 
 <template name="dashboard">
-  This is dashboard!!!!3
   <div class="input">
-    <span>
-      <input type="text" id="title" maxlength="20" placeholder="Title">
-    </span>
-    <span>
-      <input type="text" id="message" maxlength="25" placeholder="Message">
-    </span>
+    <input type="text" id="title" maxlength="20" placeholder="Title">
+    <input type="text" id="message" maxlength="25" placeholder="Message">
     <span>
       <a href="#" id="submit">Submit</a>
     </span>
   </div>
-  <!-- <div class="clear"></div> -->
   <div class="wrapper">
+  <!-- <div class="clear"></div> -->
     {{> todo}}
     {{> progress}}
     {{> done}}
@@ -45,6 +42,7 @@
 
 <template name="todo">
   <div class="column todo" ondragover="event.preventDefault()">
+    <h2 class="columnTitle">To Do</h2>
     {{#each todo}}
       {{> card }}
     {{/each}}
@@ -53,6 +51,7 @@
 
 <template name="progress">
   <div class="column progress" ondragover="event.preventDefault()">
+    <h2 class="columnTitle">In Progress</h2>
     {{#each progress}}
       {{> card }}
     {{/each}}
@@ -61,6 +60,7 @@
 
 <template name="done">
   <div class="column done" ondragover="event.preventDefault()">
+    <h2 class="columnTitle">Done</h2>
     {{#each done}}
       {{> card }}
     {{/each}}
@@ -76,7 +76,7 @@
     <p class="message" ondblclick="this.contentEditable=true" onblur="this.contentEditable=false" contenteditable= "false">
      {{message}}
     </p>
-    <div class="delete">x</div>
+    <div class="delete">X</div>
   </div>
 </template>
 
