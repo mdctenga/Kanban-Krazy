@@ -1,12 +1,15 @@
+$rem-base: 16px;
+
 //imports
 
 @import 'partials/reset';
 @import 'partials/colors';
+@import 'partials/functions';
 
 // styles
 
 body {
-  font-family: helvetica;
+  font-family: 'Press Start 2P', Helvetica;
 }
 
 .container {
@@ -18,8 +21,8 @@ body {
 
 .nav {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 1rem;
+  left: 1rem;
 }
 
 .boardTitle {
@@ -27,20 +30,23 @@ body {
   margin: 0px auto;
   text-align: center;
   clear: left;
-  margin-bottom: 1em;
-  font-size: 3em;
+  // margin-bottom: rem-calc(10px);
+  margin-bottom: 10px;
+  font-size: 30px;
+  margin-top: 1em;
+  color: $cardColor;
 }
 
 
 .input {
   text-align: center;
   margin: 0 auto;
-  width: 27%;
+  width: 35%;
+  margin-bottom: 1em;
 }
 
 .clear {
   clear: both;
-  background-color: pink;
 }
 
 .wrapper {
@@ -78,14 +84,21 @@ body {
 }
 
 .card {
-  width: 85%;
+  width: 90%;
   margin: 0 auto;
   margin-bottom: 10px;
   padding: 5px;
   text-align: center;
-  background-color: #6B9BD5;
+  background-color: $cardColor;
   border: 1px solid black;
   position: relative;
+}
+
+.cardWrapper {
+  width: 85%;
+  margin: 0 auto;
+
+  background-color: $cardWrapper;
 }
 
 .delete {
@@ -96,12 +109,12 @@ body {
 }
 
 .title {
-
+  line-height: 2;
 }
 
 .message {
-  width: 90%;
   margin: auto;
+  padding: 10px;
   text-align: center;
-  color: $message;
+  color: $primary;
 }

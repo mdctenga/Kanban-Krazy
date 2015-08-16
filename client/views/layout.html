@@ -2,6 +2,7 @@
   <title>Kanban-Krazy</title>
   <link rel="stylesheet" type="text/css" href="../css/reset.css">
   <link rel="stylesheet" type="text/css" href="../css/styles.css">
+  <link href='http://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -69,13 +70,15 @@
 
 <template name="card">
   <div class="card" draggable="true">
-    <p class="title" ondblclick="this.contentEditable=true" onblur="this.contentEditable=false" contenteditable= "false">
-     {{title}}
-    </p>
+    <div class="cardWrapper">
+      <p class="title" ondblclick="this.contentEditable=true" onblur="this.contentEditable=false" contenteditable= "false">
+       {{title}}
+      </p>
 
-    <p class="message" ondblclick="this.contentEditable=true" onblur="this.contentEditable=false" contenteditable= "false">
-     {{message}}
-    </p>
+      <p class="message" ondblclick="this.contentEditable=true" onblur="this.contentEditable=false" contenteditable= "false">
+       {{message}}
+      </p>
+    </div>
     <div class="delete">X</div>
   </div>
 </template>
