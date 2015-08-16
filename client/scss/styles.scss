@@ -1,9 +1,16 @@
+//imports
+
+@import 'partials/reset';
+@import 'partials/colors';
+
+// styles
+
 body {
   font-family: helvetica;
 }
 
 .container {
-  background-color: #21A581;
+  background-color: $primary;
   height: 100%;
   width: 100%;
   position: fixed;
@@ -46,7 +53,7 @@ body {
   height: 36em;
   width: 20em;
   float: left;
-  background-color: #62d5b4;
+  background-color: $secondary;
   margin: auto;
 }
 
@@ -88,13 +95,13 @@ body {
   cursor: pointer;
 }
 
-.Title {
-  background-color: violet;
+.title {
+
 }
 
 .message {
   width: 90%;
   margin: auto;
   text-align: center;
-  background-color: #FA9AAD;
+  color: $message;
 }
